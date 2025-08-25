@@ -31,3 +31,4 @@ venv.bak/
 dist/
 build/
 .gitignore
+*.pdf
