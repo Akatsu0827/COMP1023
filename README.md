@@ -50,6 +50,12 @@
   </p>
 </div>
 
+### Check-list
+
+- [ ] Object-oriented programming
+- [ ] NumPy
+- [ ] Pandas
+- [ ] Matplotlib
 
 
 <!-- TABLE OF CONTENTS -->

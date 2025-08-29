@@ -11,7 +11,7 @@ def memoize(f: Callable[[int], Any]) -> Callable[[int], Any]:
     limit = floor(limit/2 - 3)
     limit_list: list[Any] = [None] * limit
 
-    def handler(x: int) -> Any:
+    def handler(x: int) -> int:
         reps: int = ceil((x - max(limit, len(memo) - 1)) / limit)
         for i in range(reps):
             if memo[len(memo) - 1] is not None or len(memo) - 1 == 0:
@@ -25,8 +25,8 @@ def memoize(f: Callable[[int], Any]) -> Callable[[int], Any]:
         return memo[x]
     return handler
 
-def timing(f):
-    def wrap(*args):
+def timing(f) -> Callable[..., int]:
+    def wrap(*args) -> int:
         start = time.time()
         res = f(*args)
         end = time.time()
