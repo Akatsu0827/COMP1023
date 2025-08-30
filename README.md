@@ -52,10 +52,10 @@
 
 ### Check-list
 
-- [ ] Object-oriented programming
-- [ ] NumPy
-- [ ] Pandas
-- [ ] Matplotlib
+- [ ] Object-oriented programming (End at 9/2)
+- [ ] NumPy (End at 8/31)
+- [ ] Pandas (End at 9/1, Start at 8/31)
+- [ ] Matplotlib (End at 9/1)
 
 
 <!-- TABLE OF CONTENTS -->
