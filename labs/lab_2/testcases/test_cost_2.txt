@@ -1,0 +1,2 @@
+Enter the number of cars: 2
+The total cost will be: $1147.04

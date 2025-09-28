@@ -1,0 +1,2 @@
+Enter the number of cars: 1
+The total time taken will be: 158.90 second(s)
