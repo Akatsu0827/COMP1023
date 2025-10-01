@@ -34,10 +34,10 @@
     <img src="image/logo.png">
   </a>
 
-<h3 align="center">COMP 1023 Proficiency Test</h3>
+<h3 align="center">COMP 1023</h3>
 
   <p align="center">
-    Notes for preparing this test during 2025/8/25 - 2025/9/2
+    わからない
     <!-- <br /> -->
     <!-- <a href="https://github.com/Akatsu0827/COMP1023"><strong>Explore the docs »</strong></a>
     <br />
