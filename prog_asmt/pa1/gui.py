@@ -179,7 +179,7 @@ class GUI:
                 if self.status == "Win":
                     self.draw_board()
                     return
-                elif self.status == "Lose":
+                elif self.status == "Lose": 
                     self.draw_board()
                     return
                 self.current_shape, self.block_values = generate_shape(generator)

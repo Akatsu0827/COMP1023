@@ -319,7 +319,7 @@ def gravity_and_merge(game_board: list[list[int]]) -> list[list[int]]:
                     column[idx] = column[idx] * 2 + 1
                     column.pop(idx-1)
                     flag = True
-        column = [0] * (20 - len(column)) + column
+        column = [0] * (ROWS - len(column)) + column
         for row_idx_merge, value in enumerate(column):
             game_board[row_idx_merge][col_idx] = value
     return game_board
