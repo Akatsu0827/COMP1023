@@ -24,6 +24,7 @@ def main():
     class Lift:
         floor: str
         status: str
+        idx: int
         
         def __lt__(self, other: Self) -> bool:
             distance = [("G", "moving down"), ("G", "stopped"), ("10", "moving down"), ("10", "stopped"), ("10", "moving up"), ("G", "moving up")]
@@ -36,27 +37,63 @@ def main():
         def __eq__(self, other: Self) -> bool: # type: ignore
             distance = [("G", "moving down"), ("G", "stopped"), ("10", "moving down"), ("10", "stopped"), ("10", "moving up"), ("G", "moving up")]
             return distance.index((self.floor, self.status)) == distance.index((other.floor, other.status))
+        
+        def __ge__(self, other: Self) -> bool:
+            return self > other or self == other
+        
+        def __le__(self, other: Self) -> bool:
+            return self < other or self == other
+        
+        def __str__(self):
+            return f"{self.__class__.__name__}({', '.join([f'{key}={value}'for key, value in self.__dict__.items()])})"
+
+        def __repr__(self):
+            return f"{self.__class__.__name__}({', '.join([f'{key}={value}'for key, value in self.__dict__.items()])})"
 
         @property
         def distance(self):
             return [("G", "moving down"), ("G", "stopped"), ("10", "moving down"), ("10", "stopped"), ("10", "moving up"), ("G", "moving up")].index((self.floor, self.status))
 
-
     lift_1 = Lift()
     lift_1.floor = lift_1_floor
     lift_1.status = lift_1_status
+    lift_1.idx = 1
 
     lift_2 = Lift()
     lift_2.floor = lift_2_floor
     lift_2.status = lift_2_status
+    lift_2.idx = 2
 
     lift_3 = Lift()
     lift_3.floor = lift_3_floor
     lift_3.status = lift_3_status
+    lift_3.idx = 3
 
-    import numpy as np
-    distance_array = np.array([lift_1.distance, lift_2.distance, lift_3.distance])
-    print(f"Lift {distance_array.argmin()+1} will come to pick you up.")
+    lifts = [lift_1, lift_2, lift_3]
+    
+    def compare(lifts: list[Lift], highest_priority_idx: int = 0, current_comparing_idx: int = 1) -> Lift:
+        if lifts[highest_priority_idx] < lifts[current_comparing_idx]:
+            highest_priority_idx = current_comparing_idx
+        current_comparing_idx += 1
+        if current_comparing_idx >= len(lifts):
+            return lifts[highest_priority_idx]
+        else:
+            return compare(lifts, highest_priority_idx, current_comparing_idx)
+        
+    print(f"Lift {compare(lifts).idx} will come to pick you up.")
+
+            
+
+                
+        
+
+
+
+
+    # idx = sorted([lift_1, lift_2, lift_3], key=lambda x: x.distance)[0].idx
+    # print(f"Lift {idx} will come to pick you up.")
+
+
     
     # These are the print statements that you will need to use in your solution.
     # The expected output of your program must be exactly the same as these print statements, which is "Lift X will come to pick you up."
