@@ -7,14 +7,15 @@ def main():
     # text = "   COMP 1023   "
     # cleaned_text = text.strip()
     # print(cleaned_text)  # Output: "COMP 1023"
-    lift_1_floor = input("Current floor of lift 1 (G/10): ").strip()
-    lift_1_status = input("Status of lift 1 (moving up/moving down/stopped): ").strip()
-    lift_2_floor = input("Current floor of lift 2 (G/10): ").strip()
-    lift_2_status = input("Status of lift 2 (moving up/moving down/stopped): ").strip()
-    lift_3_floor = input("Current floor of lift 3 (G/10): ").strip()
-    lift_3_status = input("Status of lift 3 (moving up/moving down/stopped): ").strip()
+    import random
+    lift_1_floor = random.choice(["G", "10"])
+    lift_1_status = random.choice(["moving down", "stopped", "moving up"])
+    lift_2_floor = random.choice(["G", "10"])
+    lift_2_status = random.choice(["moving down", "stopped", "moving up"])
+    lift_3_floor = random.choice(["G", "10"])
+    lift_3_status = random.choice(["moving down", "stopped", "moving up"])
 
-    print("Result: ")
+    # print("Result: ")
 
     # NOTE: Please do not modify any code above this line.
 
@@ -69,6 +70,7 @@ def main():
     lift_3.status = lift_3_status
     lift_3.idx = 3
 
+
     lifts = [lift_1, lift_2, lift_3]
     
     def compare(lifts: list[Lift], highest_priority_idx: int = 0, current_comparing_idx: int = 1) -> Lift:
@@ -80,9 +82,10 @@ def main():
         else:
             return compare(lifts, highest_priority_idx, current_comparing_idx)
         
-    print(f"Lift {compare(lifts).idx} will come to pick you up.")
+    
 
-            
+    idx = sorted([lift_1, lift_2, lift_3], key=lambda x: x.distance)[0].idx
+    return f"Lift {compare(lifts).idx} will come to pick you up." == f"Lift {idx} will come to pick you up."
 
                 
         
@@ -107,4 +110,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    for i in range(114514):
+        if not main():
+            print(i)
+            break

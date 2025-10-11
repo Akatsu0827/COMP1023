@@ -159,7 +159,7 @@ def generate_shape(random_number_generator):
 #             current_rotation (int), the rotation of the current piece
 # Return: bool, True if the move is valid, False otherwise
 """
-def is_valid_move(game_board: list[list], current_shape: int, current_location: list[int], current_rotation: int) -> bool:
+def is_valid_move(game_board: list[list[int]], current_shape: int, current_location: list[int], current_rotation: int) -> bool:
     """
     # Task 3: Valid Position Check
     # You have to check if the current location and rotation of the current piece is valid
@@ -195,7 +195,7 @@ def is_valid_move(game_board: list[list], current_shape: int, current_location: 
 # Return: new current location (list), the new row and column of the current piece
 #         new current rotation (int), the new rotation of the current piece
 """
-def move_left(game_board: list[list], current_shape: int, current_location: list[int], current_rotation: int) -> tuple[list, int]:
+def move_left(game_board: list[list[int]], current_shape: int, current_location: list[int], current_rotation: int) -> tuple[list, int]:
     """
     # Task 4: Move Left
     # You have to move the current piece to the left by 1 block if the move is valid
@@ -220,7 +220,7 @@ def move_left(game_board: list[list], current_shape: int, current_location: list
 # Return: new current location (list), the new row and column of the current piece
 #         new current rotation (int), the new rotation of the current piece
 """
-def move_right(game_board: list[list], current_shape: int, current_location: list[int], current_rotation: int) -> tuple[list, int]:
+def move_right(game_board: list[list[int]], current_shape: int, current_location: list[int], current_rotation: int) -> tuple[list, int]:
     """
     # Task 5: Move Right
     # You have to move the current piece to the right by 1 block if the move is valid
@@ -245,7 +245,7 @@ def move_right(game_board: list[list], current_shape: int, current_location: lis
 # Return: new current location (list), the new row and column of the current piece
 #         new current rotation (int), the new rotation of the current piece
 """
-def move_down(game_board: list[list], current_shape: int, current_location: list[int], current_rotation: int) -> tuple[list, int]:
+def move_down(game_board: list[list[int]], current_shape: int, current_location: list[int], current_rotation: int) -> tuple[list, int]:
     """
     # Task 6: Move Down
     # You have to move the current piece down by 1 block if the move is valid
@@ -270,7 +270,7 @@ def move_down(game_board: list[list], current_shape: int, current_location: list
 # Return: new current location (list), the new row and column of the current piece
 #         new current rotation (int), the new rotation of the current piece
 """
-def rotate(game_board: list[list], current_shape: int, current_location: list[int], current_rotation: int):
+def rotate(game_board: list[list[int]], current_shape: int, current_location: list[int], current_rotation: int):
     """
     # Task 7: Rotate Piece
     # You have to rotate the current piece if the move is valid
